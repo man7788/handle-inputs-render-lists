@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Overview from "./components/Overview";
-import uniqid from "uniqid";
+import React, { Component } from 'react';
+import Overview from './components/Overview';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor() {
@@ -8,8 +8,9 @@ class App extends Component {
 
     this.state = {
       task: {
-        text: '', 
-        id: uniqid()
+        text: '',
+        id: uniqid(),
+        order: '',
       },
       tasks: [],
     };
@@ -20,6 +21,7 @@ class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
+        order: this.state.tasks.length,
       },
     });
   };
@@ -29,8 +31,8 @@ class App extends Component {
     this.setState({
       tasks: this.state.tasks.concat(this.state.task),
       task: {
-        text: '', 
-        id: uniqid()
+        text: '',
+        id: uniqid(),
       },
     });
   };
