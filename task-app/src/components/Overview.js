@@ -4,7 +4,7 @@ const Overview = (props) => {
   const { tasks } = props;
 
   return (
-    <ul>
+    <ul style={{ listStyleType: 'none' }}>
       {tasks.map((task) => {
         return (
           <li key={task.id}>
