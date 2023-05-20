@@ -7,7 +7,7 @@ const Overview = (props) => {
     <ul style={{ listStyleType: 'none' }}>
       {tasks.map((task) => {
         return (
-          <li key={task.id}>
+          <li key={task.id} id={task.id}>
             {task.order + 1 + '. '}
             {task.text}
           </li>
