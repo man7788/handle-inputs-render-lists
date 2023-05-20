@@ -37,6 +37,21 @@ class App extends Component {
     });
   };
 
+  onDelete = (e) => {
+    const targetId = e.target.id;
+
+    let newTasks = this.state.tasks.filter((task) => task.id !== targetId);
+
+    newTasks = newTasks.map((task, index) => {
+      task.order = index;
+      return task;
+    });
+
+    this.setState({
+      tasks: newTasks,
+    });
+  };
+
   render() {
     const { task, tasks } = this.state;
 
@@ -52,7 +67,24 @@ class App extends Component {
           />
           <button type="submit">Add Task</button>
         </form>
-        <Overview tasks={tasks} />
+        <div style={{ display: 'flex' }}>
+          <Overview tasks={tasks} />
+          <ul
+            style={{
+              listStyleType: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            {tasks.map((task) => {
+              return (
+                <button key={task.id} id={task.id} onClick={this.onDelete}>
+                  Delete
+                </button>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
