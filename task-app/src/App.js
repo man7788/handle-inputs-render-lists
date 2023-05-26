@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Overview from './components/Overview';
 import Delete from './components/Delete';
+import Edit from './components/Edit';
 import uniqid from 'uniqid';
 
 class App extends Component {
@@ -177,21 +178,7 @@ class App extends Component {
             }}
           >
             <Delete tasks={tasks} onClick={this.onDelete} />
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              {edits.map((edit) => {
-                return (
-                  <div key={edit.id}>
-                    {edit.field}
-                    {edit.display}
-                  </div>
-                );
-              })}
-            </div>
+            <Edit edits={edits} />
           </ul>
         </div>
       </div>
