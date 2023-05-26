@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Overview from './components/Overview';
+import Delete from './components/Delete';
 import uniqid from 'uniqid';
 
 class App extends Component {
@@ -175,22 +176,7 @@ class App extends Component {
               display: 'flex',
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              {tasks.map((task) => {
-                return (
-                  <div key={task.id}>
-                    <button key={task.id} id={task.id} onClick={this.onDelete}>
-                      Delete
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
+            <Delete tasks={tasks} onClick={this.onDelete} />
             <div
               style={{
                 display: 'flex',
